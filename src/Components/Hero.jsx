@@ -1,7 +1,27 @@
-import React from "react";
+import React from "react";import { useStateContext } from "../ContextProvider";
 
 function Hero() {
-	return <div>Hero</div>;
+	const { language } = useStateContext();
+
+	return (
+		<div className="hero">
+			<div className="ribbon"></div>
+			<h1 className="motto">
+				<span className="health">{language === "EN" ? "Health" : "Shëndeti"}</span>
+				{language === "EN" ? "is your" : "është"}
+				{language === "AL" ? <br /> : ""}
+				<span
+					className="treasure"
+					style={{
+						display: language === "AL" ? "inline" : "block",
+					}}
+				>
+					{language === "EN" ? "treasure" : "thesari "}
+				</span>
+				{language === "AL" ? "yt" : ""}
+			</h1>
+		</div>
+	);
 }
 
 export default Hero;

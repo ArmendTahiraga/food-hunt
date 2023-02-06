@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import albania from "../pictures/albania-flag-waving-icon-32.png";
-import unitedKingdom from "../pictures/united-kingdom-flag-waving-icon-32.png";
+import { Link, useLocation } from "react-router-dom";
 import { useStateContext } from "../ContextProvider";
 
 function NavBar() {
 	const { language, updateLanguage } = useStateContext();
+	const location = useLocation();
 
 	return (
 		<div className="nav-container">
@@ -14,22 +13,29 @@ function NavBar() {
 					<Link to={"/"}>
 						<h2 className="logo">Food Hunt</h2>
 					</Link>
-					<Link to={"/"}>
-						<h2 className="nav-item">Home</h2>
-					</Link>
-					<h2 className="nav-item">Diets</h2>
 				</div>
 				<div className="right">
-					<button className="login">Login</button>
-					<button className="sign-up">Sign Up</button>
-					<div className="language-section">
+					<Link to={"/"}>
+						<h2
+							className="nav-item"
+							style={{
+								borderBottom: location.pathname === "/" ? "1px solid #fff" : "0",
+							}}
+						>
+							{language === "EN" ? "Home" : "Shtëpi"}
+						</h2>
+					</Link>
+					<h2 className="nav-item">{language === "EN" ? "Diets" : "Dietat"}</h2>
+					<button className="login">{language === "EN" ? "Login" : "Hyr"}</button>
+					<button className="sign-up">{language === "EN" ? "Sign Up" : "Regjistrohu"}</button>
+					{/* <div className="language-section">
 						<img
 							src={albania}
 							alt=""
 							value={"Albanian"}
 							onClick={(e) => updateLanguage(e)}
 							style={{
-								transform: language === "Albanian" ? "scale(1.2)" : "scale(0.8)",
+								transform: language === "Albanian" ? "scale(1.1)" : "scale(0.8)",
 							}}
 						/>
 						<h3 className="image-deviser">/</h3>
@@ -39,10 +45,19 @@ function NavBar() {
 							value={"English"}
 							onClick={(e) => updateLanguage(e)}
 							style={{
-								transform: language === "English" ? "scale(1.2)" : "scale(0.8)",
+								transform: language === "English" ? "scale(1.1)" : "scale(0.8)",
 							}}
-						/>
-					</div>
+						/> 
+					</div> */}
+					<h4
+						className="language"
+						onClick={() => updateLanguage()}
+						style={{
+							marginRight: language === "AL" ? "2px" : 0,
+						}}
+					>
+						{language}
+					</h4>
 				</div>
 			</div>
 		</div>

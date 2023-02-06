@@ -1,25 +1,29 @@
-* {
-	margin: 0;
+* {	margin: 0;
 	box-sizing: border-box;
 	color: #141414;
 	font-size: 1rem;
 	font-family: "Poppins", sans-serif;
 	font-weight: 400;
+	color: #fff;
 }
 
 body {
-	background-color: #f5f5f5;
+	background-color: #f0695f;
 	min-height: 100vh;
 }
 
 .nav-container {
-	border-bottom: 1px solid rgb(192, 192, 192);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	width: 100%;
 }
 
 .nav {
 	margin: 0 auto;
 	height: 60px;
-	width: 60%;
+	width: 75%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -27,14 +31,17 @@ body {
 
 .nav div * {
 	display: inline;
-	margin-left: 20px;
+	margin-left: 30px;
 	text-decoration: none;
 }
 
-.nav-item {
-	/* text-transform: uppercase;
-	letter-spacing: 1px; */
-	font-size: 1.2rem;
+.nav-item,
+.login,
+.sign-up,
+.language {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 1.1rem;
 	cursor: pointer;
 }
 
@@ -43,44 +50,32 @@ body {
 	font-weight: 600;
 }
 
+.login {
+	background: 0;
+}
+
 .login,
 .sign-up {
 	border: 0;
-	font-weight: 500;
-	color: #fff;
-	border-radius: 7px;
-	padding: 7px 10px;
-	cursor: pointer;
-	transition: border-radius, 0.2s;
-}
-
-.login:hover,
-.sign-up:hover {
-	box-shadow: 0 0 0 0.7em transparent;
-}
-
-.login:hover {
-	animation: pulse-login 0.5s;
-}
-
-.sign-up:hover {
-	animation: pulse-sign-up 0.5s;
-}
-
-.login {
-	background-color: #ff928a;
 }
 
 .sign-up {
-	background-color: #ee2f21;
+	background-color: #fff;
+	color: #ee2f21;
+	border-radius: 7px;
+	padding: 7px 10px;
+	transition: border-radius, 0.2s;
 }
 
-.language-section {
-	position: relative;
-	top: 5px;
+.sign-up:hover {
+	box-shadow: 0 0 0 0.6em transparent;
+	animation: pulse-sign-up 0.5s;
 }
 
-.language-section * {
+.language {
+	font-size: 0.9rem;
+}
+/* .language-section * {
 	margin: 0 !important;
 }
 
@@ -90,20 +85,49 @@ body {
 }
 
 .image-deviser {
-	color: #a0a0a0b2;
 	position: relative;
 	margin: 0 5px !important;
 	top: -3px;
+} */
+
+.hero {
+	background-image: url(./pictures/hero-background.png);
+	background-size: cover;
+	background-position: center;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.motto {
+	font-size: 4rem;
+	font-weight: 700;
+}
+
+.ribbon {
+	background-color: #65ff62;
+	width: 10%;
+	height: 45px;
+	margin-top: -190px;
+}
+
+.health,
+.treasure {
+	font-size: 4rem;
+	display: block;
+	font-weight: 700;
+}
+
+.health {
+	color: #65ff62;
+}
+
+.treasure {
+	color: rgb(255, 228, 73);
 }
 
 @keyframes pulse-sign-up {
 	0% {
-		box-shadow: 0 0 0 0 #ee2f21;
-	}
-}
-
-@keyframes pulse-login {
-	0% {
-		box-shadow: 0 0 0 0 #ee2f21;
+		box-shadow: 0 0 0 0 #fff;
 	}
 }

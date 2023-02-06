@@ -11,10 +11,10 @@ function App() {
 		<>
 			<NavBar />
 			<Hero />
-			<Diets />
+			{/* <Diets />
 			<PaymentPlan />
 			<Map />
-			<Footer />
+			<Footer /> */}
 		</>
 	);
 }
